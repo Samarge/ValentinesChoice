@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Valentine's Day Message</title>
+
+    <style>
+
+        body {
+
+            background: url('your-image.jpg') no-repeat center center fixed;
+
+            background-size: cover;
+
+
+            color: white;
+
+            font-family: Arial, sans-serif;
+
+            text-align: center;
+
+            padding: 20px;
+
+            margin: 0;
+
+        }
+
+        .container {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            padding: 20px;
+
+            background-color: rgba(0, 0, 0, 0.8);
+
+            border-radius: 10px;
+
+        }
+
+        h1, h2, p {
+
+            margin-bottom: 20px;
+
+        }
+
+        .btn-container {
+
+            margin-top: 20px;
+
+        }
+
+        .btn-container a {
+
+            text-decoration: none;
+
+            background-color: #ff69b4;
+
+            padding: 10px 20px;
+
+            font-size: 18px;
+
+            color: white;
+
+            border-radius: 5px;
+
+            display: inline-block;
+
+            cursor: pointer;
+
+        }
+
+        .btn-container a:hover {
+
+            background-color: #ff1493;
+
+        }
+
+        .checkbox-container {
+
+            margin-top: 20px;
+
+            font-size: 20px;
+
+        }
+
+        .checkbox-container input {
+
+            width: 20px;
+
+            height: 20px;
+
+            margin-right: 10px;
+
+        }
+
+        .sad-face {
+
+            font-size: 50px;
+
+            color: #ff6347;
+
+            display: none;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <!-- Background Music -->
+
+    <audio id="background-music" loop>
+
+        <source src="your-song.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+
+    </audio>
+
+
+
+    <!-- First Page: Message -->
+
+    <div class="container" id="first-page">
+
+        <h1> Trinity • The Father, Son, & Holy Spirit | The State of Being Three </h1>
+
+        <p>
+
+            I know things haven’t been easy, and I’ve hurt you in ways I wish I could undo. With Valentine’s Day coming up, I see it as our anniversary, a reminder of where we’ve been and everything we’ve gone through. I don’t have all the answers, but I want you to know that I’m here, trying to make things right.
+
+        </p>
+
+        <p>
+
+            I can’t take back what I’ve done, but what I can do is show you that I’m willing to learn and grow. You mean the world to me, and I’m ready to put in the work to prove it.
+
+        </p>
+
+        <p>
+
+            I’d love to spend Valentine’s Day with you and take the time to rebuild what we’ve lost. I hope we can talk soon so I can make plans before it’s too late. But no matter what, here’s a toast to us—what we’ve shared and what we still have the chance to rebuild.
+
+        </p>
+
+        <p><em>“What can I say to you to justify my love? It’s not about the past, but what I’m willing to do now to make it right.”</em></p>
+
+        <p>Give me a call later—I miss you.</p>
+
+
+
+        <!-- Continue Button -->
+
+        <div class="btn-container">
+
+            <a href="#" id="continue-btn">Click Continue</a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Second Page: Ask the Valentine Question -->
+
+    <div class="container" id="second-page" style="display: none;">
+
+        <h2>So, what do you say? Will you be my Valentine?</h2>
+
+
+
+        <!-- Yes/No checkboxes -->
+
+        <div class="checkbox-container">
+
+            <label>
+
+                <input type="radio" name="valentine" id="yes" onclick="location.href='sms:+18432062346';" />
+
+                Yes
+
+            </label>
+
+            <label>
+
+                <input type="radio" name="valentine" id="no" onclick="document.getElementById('sad-face').style.display = 'block';" />
+
+                No
+
+            </label>
+
+        </div>
+
+
+
+        <!-- Sad Face if No is clicked -->
+
+        <p id="sad-face" class="sad-face">😞</p>
+
+    </div>
+
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var audio = document.getElementById("background-music");
+
+
+
+            // Ensure music plays when user interacts with page
+
+            function playMusic() {
+
+                audio.play().catch(() => {}); // Play, ignore errors if blocked
+
+                document.body.removeEventListener("click", playMusic); // Remove event
+
+            }
+
+
+
+            // Try autoplay, fallback to user interaction
+
+            var playPromise = audio.play();
+
+            if (playPromise !== undefined) {
+
+                playPromise.catch(() => {
+
+                    document.body.addEventListener("click", playMusic);
+
+                });
+
+            }
+
+
+
+            // Continue button logic
+
+            document.getElementById("continue-btn").addEventListener("click", function(event) {
+
+                event.preventDefault();
+
+                document.getElementById("first-page").style.display = "none";
+
+                document.getElementById("second-page").style.display = "block";
+
+            });
+
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>
